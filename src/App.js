@@ -8,8 +8,6 @@ const credentials = new Credentials({
   sessionToken: process.env.REACT_APP_AWS_SESSION_TOKEN
 });
 
-console.log({credentials, env: process.env})
-
 let s3 = new AWS.S3({region: 'eu-north-1', credentials});
 
 const fetchData = async (setTableData) => {
