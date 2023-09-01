@@ -1,6 +1,6 @@
 type Expense @model @auth(rules: [{allow: public}]) {
   id: ID!
-  nam: String
+  name: String
   date: AWSDateTime
   cost: Float
 }

@@ -13,19 +13,19 @@ export declare type ValidationResponse = {
 };
 export declare type ValidationFunction<T> = (value: T, validationResponse: ValidationResponse) => ValidationResponse | Promise<ValidationResponse>;
 export declare type ExpenseCreateFormInputValues = {
-    nam?: string;
+    name?: string;
     date?: string;
     cost?: number;
 };
 export declare type ExpenseCreateFormValidationValues = {
-    nam?: ValidationFunction<string>;
+    name?: ValidationFunction<string>;
     date?: ValidationFunction<string>;
     cost?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type ExpenseCreateFormOverridesProps = {
     ExpenseCreateFormGrid?: PrimitiveOverrideProps<GridProps>;
-    nam?: PrimitiveOverrideProps<TextFieldProps>;
+    name?: PrimitiveOverrideProps<TextFieldProps>;
     date?: PrimitiveOverrideProps<TextFieldProps>;
     cost?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;

@@ -1,5 +1,15 @@
 import React, { useState } from 'react';
 import AWS, { Credentials } from 'aws-sdk';
+import logo from "./logo.svg";
+import "@aws-amplify/ui-react/styles.css";
+import {
+  withAuthenticator,
+  Button,
+  Heading,
+  Image,
+  View,
+  Card,
+} from "@aws-amplify/ui-react";
 import './App.css';
 
 const credentials = new Credentials({
@@ -66,12 +76,17 @@ const MyTable = () => {
   );
 };
 
-function App() {
+function App({ signOut }) {
   return (
-    <div className="App">
-      <MyTable />
-    </div>
+    <View className="App">
+      <Card>
+        <Image src={logo} className="App-logo" alt="logo" />
+        <Heading level={1}>We now have Auth!</Heading>
+        <MyTable />
+      </Card>
+      <Button onClick={signOut}>Sign Out</Button>
+    </View>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
