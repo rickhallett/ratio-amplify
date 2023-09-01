@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
-import AWS from 'aws-sdk';
+import AWS, { Credentials } from 'aws-sdk';
 import './App.css';
 
-const s3 = new AWS.S3();
+const credentials = new Credentials({
+  accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+  sessionToken: process.env.REACT_APP_AWS_SESSION_TOKEN
+});
+
+console.log({credentials, env: process.env})
+
+let s3 = new AWS.S3({region: 'eu-north-1', credentials});
 
 const fetchData = async (setTableData) => {
   const params = {
